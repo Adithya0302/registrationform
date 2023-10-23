@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+<div class="main">
+<div class="register">
+    <nav>
+        <a href="#"></a><img src="images/finallogo.jpeg" class="logo" alt=""></a>
+    </nav>
+    <h2>Vault of Codes</h2>
+    <form id="register" method="post">
+    <label>First Name : </label>
+    <br>
+    <input type="text" name="fname" id="name" placeholder="Enter Your First Name">
+    <br><br>
+    <label>Last Name : </label>
+    <br>
+    <input tpe="text" name="lname" id="name" placeholder="Enter Your Last Name">
+    <br><br>
+    <label>Email : </label>
+    <br>
+    <input type="email" name="email" id="name" placeholder="Enter Your Valid Email">
+    <br><br>
+    <label>Password : </label>
+    <br>
+    <input type="password" id="password" name="password" placeholder="Enter New Password">
+    <p id="message">Password is <span id="strength"></span></p>
+    <br><br>
+    <label>Confirm Password : </label>
+    <br>
+    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Your Password">
+    <p id="message">Password is <span id="strength"></span></p>
+    <br><br>
+    <br>
+    <div class="input-group">
+        <label>Date of Birth : </label>
+        <br>
+        <input type="date" id="dob" name="dob">
+        <br><br>
+    </div>
+    <div class="input-group">
+        <label>Gender : </label>
+        <br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <br><br>
+    </div>
+    <div class="input-group">
+        <label>Profile Picture : </label>
+        <br>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+        <br><br>
+    </div>
+    <div class="input-group">
+        <label>
+            <br>
+            <input type="checkbox" id="terms-conditions" name="terms-conditions" required>
+            I agree to the Terms and Conditions
+        </label>
+        <br><br>
+    <input type="submit" value="Register" name="register" id="register">
+</form>
+</div>
+    </form>
+</div>    
+</div>
+
+<script>
+
+    var pass = document.getElementById("password");
+    var msg = document.getElementById("message");
+    var str = document.getElementById("strength");
+    
+    pass.addEventListener('input', () => { 
+        if(pass.value.length > 0){
+            msg.style.display = "block";
+        }
+        else{
+            msg.style.display="none";
+        }
+        if(pass.value.length < 5){
+            str.innerHTML ="weak";
+            pass.style.borderColor= "#ff5925";
+            msg.style.color ="#ff5925";
+        }
+        else if(pass.value.length >=5 && pass.value.length < 8){
+            str.innerHTML = "medium";
+            pass.style.borderColor= "yellow";
+            msg.style.color ="yellow";
+
+        }
+        else if(pass.value.length >= 8){
+            str.innerHTML= "strong";
+            pass.style.borderColor= "#26d730";
+            msg.style.color ="#26d730";
+        }
+
+    })
+
+</script>    
+</body>
+</html>
